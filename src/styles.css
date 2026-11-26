@@ -346,7 +346,12 @@ p {
   gap: 13px;
   text-align: left;
   cursor: pointer;
-  transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+  transition:
+    background 550ms ease,
+    border-color 550ms ease,
+    color 550ms ease,
+    box-shadow 550ms ease,
+    transform 180ms ease;
 }
 
 .stack-option:hover {
@@ -357,6 +362,7 @@ p {
   background: var(--orange);
   border-color: var(--orange);
   color: #143b33;
+  box-shadow: 0 7px 22px rgba(243, 148, 39, 0.15);
 }
 
 .stack-icon,
