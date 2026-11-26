@@ -673,9 +673,9 @@ p {
   border-radius: 16px;
   background: #fff;
   display: grid;
-  grid-template-columns: 280px 1fr 24px;
+  grid-template-columns: 160px minmax(0, 1fr) 24px;
   align-items: center;
-  gap: 34px;
+  gap: 28px;
   box-shadow: 0 5px 16px rgba(14, 53, 44, 0.025);
   transition: transform 180ms ease, box-shadow 180ms ease;
 }
@@ -700,6 +700,10 @@ p {
 .service-icon {
   width: 48px;
   height: 48px;
+  flex: 0 0 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
   background: var(--green);
   color: var(--orange);
 }
@@ -1180,8 +1184,8 @@ p {
   }
 
   .service-row {
-    grid-template-columns: 215px 1fr 20px;
-    gap: 25px;
+    grid-template-columns: 150px minmax(0, 1fr) 20px;
+    gap: 24px;
   }
 
   .industries-inner {
@@ -1373,6 +1377,8 @@ p {
   .service-icon {
     width: 36px;
     height: 36px;
+    flex-basis: 36px;
+    border-radius: 10px;
   }
 
   .service-text {
