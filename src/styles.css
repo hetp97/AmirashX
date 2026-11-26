@@ -1563,8 +1563,28 @@ p {
     text-align: left;
   }
 
+  .hero-copy > .eyebrow {
+    font-size: 10px;
+  }
+
+  .hero-copy > p {
+    font-size: 16px;
+  }
+
+  .button {
+    font-size: 14px;
+  }
+
   .stack-heading h2 {
     font-size: 24px;
+  }
+
+  .stack-heading .eyebrow {
+    font-size: 10px;
+  }
+
+  .core-caption {
+    font-size: 9px;
   }
 
   .ecosystem-canvas {
@@ -1717,11 +1737,16 @@ p {
   }
 
   .ecosystem-copy strong {
-    font-size: 12px;
+    font-size: 13px;
   }
 
   .ecosystem-copy > span:last-child {
     display: block;
+    font-size: 11px;
+    line-height: 1.35;
+  }
+
+  .ecosystem-layer {
     font-size: 9px;
   }
 
@@ -1729,7 +1754,52 @@ p {
     justify-content: flex-start;
     margin-top: 16px;
     text-align: left;
-    font-size: 9px;
+    font-size: 10px;
+  }
+
+  .stack-more {
+    font-size: 13px;
+  }
+
+  .section-intro > p {
+    font-size: 15px;
+  }
+
+  .service-text h3 {
+    font-size: 16px;
+  }
+
+  .service-text p {
+    font-size: 13px;
+  }
+
+  .approach-card h3 {
+    font-size: 15px;
+  }
+
+  .approach-card p {
+    font-size: 13px;
+  }
+
+  .industry-card p {
+    font-size: 13px;
+  }
+
+  .about-copy > p {
+    font-size: 14px;
+  }
+
+  .contact-content > p {
+    font-size: 15px;
+  }
+
+  .footer-brand small {
+    font-size: 10px;
+  }
+
+  .footer-column li,
+  .footer-column a {
+    font-size: 12px;
   }
 }
 
@@ -1741,7 +1811,7 @@ p {
   }
 
   .hero h1 {
-    font-size: 32px;
+    font-size: 34px;
   }
 
   .hero-copy > .eyebrow {
