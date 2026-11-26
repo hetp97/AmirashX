@@ -56,22 +56,6 @@ const services = [
   },
 ];
 
-const brands = [
-  "Microsoft 365",
-  "Google Workspace",
-  "Zoho Workplace",
-  "Microsoft Azure",
-  "AWS",
-  "Tally on Cloud",
-  "Business Wi-Fi",
-  "Firewalls & VPN",
-  "Endpoint Security",
-  "Cloud Backup",
-  "Structured Cabling",
-  "Managed IT Support",
-  "AMC",
-];
-
 const approaches = [
   {
     title: "One Point of Contact",
@@ -233,22 +217,6 @@ function Hero() {
         <StackPreview />
       </div>
     </section>
-  );
-}
-
-function Ticker() {
-  return (
-    <div className="ticker" aria-label="Technology services">
-      {[0, 1].map((row) => (
-        <div className={`ticker-track ticker-track-${row + 1}`} key={row} aria-hidden={row === 1}>
-          {[...brands, ...brands].map((brand, index) => (
-            <span className="ticker-item" key={`${row}-${brand}-${index}`}>
-              {brand}
-            </span>
-          ))}
-        </div>
-      ))}
-    </div>
   );
 }
 
@@ -466,7 +434,6 @@ export default function App() {
       <Header />
       <main>
         <Hero />
-        <Ticker />
         <Services />
         <Approach />
         <Industries />
