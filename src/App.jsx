@@ -253,9 +253,8 @@ function Hero() {
         <div className="hero-copy">
           <Eyebrow light>Business IT Solutions | Vadodara & Gujarat</Eyebrow>
           <h1>
-            Your Business IT:
-            <span>Planned, Secured</span>
-            &amp; Supported.
+            Technology that
+            <span>keeps your business moving.</span>
           </h1>
           <p>
             From cloud infrastructure and business email to network security and ongoing IT
