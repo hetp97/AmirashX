@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   ArrowDownRight,
   ArrowRight,
@@ -149,27 +149,9 @@ function Header() {
 }
 
 function StackPreview() {
-  const [active, setActive] = useState(0);
-  const [paused, setPaused] = useState(false);
-
-  useEffect(() => {
-    if (paused || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-    const intervalId = window.setInterval(() => {
-      setActive((current) => (current + 1) % services.length);
-    }, 3000);
-
-    return () => window.clearInterval(intervalId);
-  }, [paused]);
-
+  const [active, setActive] = useState(2);
   return (
-    <div
-      className="stack-preview"
-      onPointerEnter={(event) => {
-        if (event.pointerType === "mouse") setPaused(true);
-      }}
-      onPointerLeave={() => setPaused(false)}
-    >
+    <div className="stack-preview">
       <div className="circuit-lines" aria-hidden="true">
         <span />
         <span />
