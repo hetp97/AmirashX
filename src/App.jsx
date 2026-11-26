@@ -21,6 +21,7 @@ import {
 const services = [
   {
     title: "Business Email & Workspace",
+    graphTitle: "Email & Workspace",
     short: "Microsoft 365 · Google Workspace",
     description:
       "Set up and manage professional business email, Microsoft 365, Google Workspace and Zoho Workplace.",
@@ -28,6 +29,7 @@ const services = [
   },
   {
     title: "Cloud Servers, Hosting & Backup",
+    graphTitle: "Cloud & Backup",
     short: "Azure · AWS · Tally on Cloud",
     description:
       "Move your business applications and infrastructure to the cloud with hosting, backup and cost management solutions.",
@@ -35,6 +37,7 @@ const services = [
   },
   {
     title: "Network, Wi-Fi & Firewall",
+    graphTitle: "Network & Wi-Fi",
     short: "Office & plant connectivity",
     description:
       "Build secure and reliable connectivity across your offices, plants, branches and remote teams.",
@@ -42,6 +45,7 @@ const services = [
   },
   {
     title: "Cybersecurity & Data Protection",
+    graphTitle: "Cybersecurity",
     short: "Endpoint · Email · Recovery",
     description:
       "Protect your business systems, information and users with practical security and data protection solutions.",
@@ -49,11 +53,20 @@ const services = [
   },
   {
     title: "Managed IT Support & AMC",
+    graphTitle: "IT Support & AMC",
     short: "Helpdesk · On-site · Monitoring",
     description:
       "Keep your technology running smoothly with ongoing IT support, monitoring, maintenance and annual maintenance contracts.",
     icon: Headphones,
   },
+];
+
+const ecosystemPaths = [
+  { path: "M 250 210 C 200 175 130 40 200 45", x: 200, y: 45 },
+  { path: "M 250 210 C 310 180 360 100 300 110", x: 300, y: 110 },
+  { path: "M 250 210 C 200 220 140 228 200 228", x: 200, y: 228 },
+  { path: "M 250 210 C 310 240 360 295 300 295", x: 300, y: 295 },
+  { path: "M 250 210 C 250 265 250 310 250 344", x: 250, y: 344 },
 ];
 
 const approaches = [
@@ -149,33 +162,77 @@ function Header() {
 }
 
 function StackPreview() {
-  const [active, setActive] = useState(2);
+  const [active, setActive] = useState(0);
+
   return (
     <div className="stack-preview">
-      <div className="circuit-lines" aria-hidden="true">
-        <span />
-        <span />
-        <span />
-      </div>
       <div className="stack-heading">
-        <Eyebrow light>The AmirashX Stack</Eyebrow>
-        <h2>Five Layers of Business IT</h2>
+        <Eyebrow light>One connected business</Eyebrow>
+        <h2>Five layers. One connected system.</h2>
       </div>
-      <div className="stack-options">
-        {services.map(({ title, short, icon: Icon }, index) => (
+      <div className="ecosystem-canvas">
+        <svg
+          className="ecosystem-wires"
+          viewBox="0 0 500 420"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <circle className="ecosystem-orbit orbit-outer" cx="250" cy="210" r="142" />
+          <circle className="ecosystem-orbit orbit-inner" cx="250" cy="210" r="111" />
+          <circle className="ecosystem-orbit orbit-core" cx="250" cy="210" r="75" />
+          <g className="ecosystem-links">
+            {ecosystemPaths.map(({ path }, index) => (
+              <path className="ecosystem-wire" d={path} key={`wire-${index}`} />
+            ))}
+          </g>
+          <g>
+            {ecosystemPaths.map(({ path }, index) => (
+              <path
+                className={`ecosystem-flow${active === index ? " is-active" : ""}`}
+                d={path}
+                key={`flow-${index}`}
+              />
+            ))}
+          </g>
+          <g className="ecosystem-beacons">
+            {ecosystemPaths.map(({ x, y }, index) => (
+              <circle
+                className={active === index ? "beacon is-active" : "beacon"}
+                cx={x}
+                cy={y}
+                key={`beacon-${index}`}
+                r="3"
+              />
+            ))}
+          </g>
+        </svg>
+        <div className="ecosystem-core">
+          <span className="core-orbit core-orbit-wide" />
+          <span className="core-orbit core-orbit-close" />
+          <span className="core-badge">
+            <img src="/logo-icon.png" alt="" />
+          </span>
+          <span className="core-brand">AmirashX</span>
+          <span className="core-caption">BUSINESS IT HUB</span>
+        </div>
+        {services.map(({ title, graphTitle, short, icon: Icon }, index) => (
           <button
-            className={`stack-option${active === index ? " active" : ""}`}
+            className={`ecosystem-node node-${index + 1}${active === index ? " active" : ""}`}
             key={title}
             type="button"
             onClick={() => setActive(index)}
             aria-pressed={active === index}
+            aria-label={`Layer 0${index + 1}: ${title}. ${short}`}
           >
-            <span className="stack-icon"><Icon size={17} strokeWidth={1.7} /></span>
-            <span className="stack-copy">
-              <strong>{title}</strong>
-              <small>{short}</small>
+            <span className="ecosystem-icon"><Icon size={18} strokeWidth={1.7} /></span>
+            <span className="ecosystem-copy">
+              <small className="ecosystem-layer">LAYER 0{index + 1}</small>
+              <strong>{graphTitle}</strong>
+              <span>{short}</span>
             </span>
-            <span className="stack-number">0{index + 1}</span>
+            <span className="ecosystem-check" aria-hidden="true">
+              <ArrowUpRight size={14} strokeWidth={1.8} />
+            </span>
           </button>
         ))}
       </div>
